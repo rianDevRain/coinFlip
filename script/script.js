@@ -28,7 +28,6 @@ const coin = {
 function display20Flips() {
 	for (let i = 0; i < 19; i++) {
 		coin.flip();
-		// image.src = "./images";
 		let paragraph = document.createElement("p");
 		paragraph.innerHTML = coin.toString();
 		document.body.append(paragraph);
