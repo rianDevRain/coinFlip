@@ -23,24 +23,39 @@ const coin = {
 	},
 };
 
+let newDiv = document.createElement('div')
+newDiv.id = 'div1'
+document.body.append(newDiv)
+let notherDiv = document.createElement('div')
+notherDiv.id = 'div2'
+document.body.append(notherDiv)
+let orderList = document.createElement('ol')
+newDiv.append(orderList)
+let orderList2 = document.createElement('ol')
+notherDiv.append(orderList2)
 
 
-function display20Flips() {
-	for (let i = 0; i < 19; i++) {
+const display20Flips = () => {
+	for (let i = 0; i < 20; i++) {
 		coin.flip();
-		let paragraph = document.createElement("p");
-		paragraph.innerHTML = coin.toString();
-		document.body.append(paragraph);
-			}
+		let listItem = document.createElement("li");
+		listItem.append(coin.toString());
+		orderList.append(listItem);
+	}
 }
 display20Flips();
 
-function display20Images() {
-	for (let i = 0; i < 19; i++) {
+const display20Images = () => {
+	for (let i = 0; i < 20; i++) {
 		coin.flip();
 		let img = document.createElement("img");
+		let listItem = document.createElement('li')
 		img.src = coin.toHTML();
-		document.body.append(img);
+		img.style.height = '100px'
+		orderList2.append(listItem);
+		listItem.append(img)
 	}
 }
 display20Images();
+
+let divSelector = document.querySelector('div1')
